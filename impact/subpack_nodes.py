@@ -16,7 +16,7 @@ class UltralyticsDetectorProvider:
     def INPUT_TYPES(s):
         bboxs = ["bbox/"+x for x in folder_paths.get_filename_list("ultralytics_bbox")]
         segms = ["segm/"+x for x in folder_paths.get_filename_list("ultralytics_segm")]
-        return {"required": {"model_name": (bboxs + segms, )}}
+        return {"required": {"model_name": (folder_paths.get_filename_list("ultralytics_bbox"),)}}
     RETURN_TYPES = ("BBOX_DETECTOR", "SEGM_DETECTOR")
     FUNCTION = "doit"
 
